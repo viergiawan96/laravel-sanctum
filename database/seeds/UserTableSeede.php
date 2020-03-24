@@ -14,15 +14,15 @@ class UserTableSeede extends Seeder
     {
         User::truncate();
         User::create([
-            'name' => 'Anugrah Sandi',
-            'email' => 'admin@daengweb.id',
+            'name' => 'Satrio Yudho',
+            'email' => 'viergiawan96@gmail.com',
             'password' => bcrypt('secret'),
             'role' => 'admin'
         ]);
 
         User::create([
-            'name' => 'Riski Amelia',
-            'email' => 'riski@daengweb.id',
+            'name' => 'angga',
+            'email' => 'angga@gmail.com',
             'password' => bcrypt('secret'),
             'role' => 'users'
         ]);
