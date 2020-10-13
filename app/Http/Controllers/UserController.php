@@ -35,11 +35,11 @@ class UserController extends Controller
         }
     
         //JADI, JIKA DIA ADMIN, MAKA MEMILIKI DUA ABILITY, MELIHAT DAN NEMBAHKAN. JIKA DIA USER MAKA HANYA BISA MELIHAT DATA USER.
-        $abilities = $user->role == 'admin' ? ['user:index', 'user:create']:['user:index'];
+        $abilities = strtoupper($user->role) == 'ADMIN' ? ['user:index', 'user:create']:['user:index'];
         return response()->json([
             'status' => 'success', 
             //LALU PADA METHOD createToken(), TAMBAHKAN PARAMETER ABILITIESNYA
-            'data' => $user->createToken($request->type, $abilities)->plainTextToken
+            'data' => $user->createToken($user->name, $abilities)->plainTextToken
         ]);
     }
     public function store(Request $request)
